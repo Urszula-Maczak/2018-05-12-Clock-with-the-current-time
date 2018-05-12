@@ -1,0 +1,52 @@
+html{
+	background: #018DED url(https://cdn.pixabay.com/photo/2017/02/21/09/02/clouds-2085112_960_720.jpg);
+	background-size: cover; /*zdjęcie pokrywa cały html*/
+	text-align: center;
+	/*font-family: 'helvetica neue';*/
+	/*font-size: 10px;*/
+}
+body {
+	margin: 0; /*likwiduję się domyslne marginy*/
+	font-size: 2rem; /*stosuję jednostkę rem, która odwołuje się do 
+	nadrzędnej wartości elementu HTML, czyli tutaj do font-size: 10px*/
+	/*display: flex;	
+	flex: 1;
+	min-height: 100vh;
+	align-items: center;*/
+}
+.clock {
+	width: 30rem;
+	height: 30rem;
+	border: 20px solid white; /*po utworzeniu width, height i border powstał div w postaci białej 
+	kwadratowej ramki na stronie*/
+	border-radius: 50%; /*kwadratowa ramka zamieniła się w okrągłą*/
+	margin: 50px auto; /*przesunęło okrągłą ramkę na środek*/
+	position: relative;
+	padding: 2rem;
+	box-shadow: 
+		0 0 0 4px rgba(0,0,0,0.1),
+		inset 0 0 0 3px #EFEFEF,
+		inset 0 0 10px black,
+		0 0 10px rgba(0,0,0,0.2);
+}
+.clock-face {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform: translate(-3px); /*uwzględnia wysokość wskazówek zegara*/
+}
+.hand {
+	width: 50%;
+	height: 6px;
+	background: black; /*w końcu pojawiła się wskazówka u góry okrągłej ramki*/
+	position: absolute; /*zmniejszyła się grubość wskazówki*/
+	top: 50%;  /*czarna wskazówka zostałam pzresunięta do środka koła*/
+	transform-origin: 100%; /*ta właściwość jest związana z stylem CSS trnasform. Przyjmuj punkt początkowy obrotu 
+	elementu. Wartośc możeby wyrażona w długości px, procentach bądź top, left, right, bottom or center. 
+	Pierwsza pozycja odpowiada za poziomą pozycję, druga pionową, a w przypadku transformacji 3d - trzecia względem osi z. 
+	Dla transform 3d nie można stoswac wartości procentowych.*/
+	transform: rotate(90deg); /*ta właściwość pozwala na pochylenie - skew(), obracanie - rotate(), translowanie - translate(),
+	skalowanie - scale() elementu względem jakiejś wartości. więcej tutaj: https://css-tricks.com/almanac/properties/t/transform*/
+	transition: all .05s;
+	transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
